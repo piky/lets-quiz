@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('SCM Get Code') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'http://gitea:3000/student/acme_corp.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/piky/lets-quiz.git']]])
             }
         }
 
