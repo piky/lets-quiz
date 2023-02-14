@@ -1,7 +1,10 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    kubernetes python3
+    agent
+        {
+            kubernetes
+        }
     stages {
         stage('SCM Get Code') {
             steps {
