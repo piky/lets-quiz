@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent any
+    agent python3
     stages {
         stage('SCM Get Code') {
             steps {
