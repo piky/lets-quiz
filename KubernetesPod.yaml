@@ -6,5 +6,5 @@ metadata:
       jenkins-agent: jntl-agent-python3
 spec:
   containers:
-    - name: jnlp
+    - name: python
       image: jenkins/jnlp-agent-python3:latest
