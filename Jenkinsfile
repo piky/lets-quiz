@@ -3,10 +3,21 @@
 pipeline {
     agent {
         kubernetes {
-            containerTemplate {
-                name 'python3'
-                image 'jenkins/jnlp-agent-python:latest'
-            }
+            yaml '''
+                apiVersion: v1
+                kind: Pod
+                metadata:
+                labels:
+                    jenkins-agent: jntl-agent-python
+                spec:
+                containers:
+                - name: python3
+                    image: jnlp-agent-python:latest
+                    command:
+                    - cat
+                    tty: true
+                '''
+            retries 2
         }
     }
             
