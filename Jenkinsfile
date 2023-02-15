@@ -18,7 +18,7 @@ pipeline {
         stage('Installing packages') {
             steps {
                 script {
-                    sh '/usr/bin/python3 -m pip install -r playbooks/files/requirements_test.txt'
+                    sh '/usr/local/bin/python3 -m pip install -r playbooks/files/requirements_test.txt'
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
         stage('Static Code Checking') {
             steps {
                 script {
-                    sh 'find . -name \\*.py | xargs /usr/bin/python3 -m pylint --load-plugins=pylint_django -f parseable | tee pylint.log'
+                    sh 'find . -name \\*.py | xargs /usr/local/bin/python3 -m pylint --load-plugins=pylint_django -f parseable | tee pylint.log'
                     recordIssues(
                         tool: pyLint(pattern: 'pylint.log'),
                         failTotalHigh: 10,
@@ -44,7 +44,7 @@ pipeline {
                         git fetch --tags --all --prune
                         git config --replace-all user.name ${env.GIT_USERNAME}
                         git config --replace-all user.email ${env.GIT_USERNAME}
-                        cd app && /usr/bin/python3 -m bumpversion --config-file setup.cfg --allow-dirty --verbose minor --list > build_vars.env
+                        cd app && /usr/local/bin/python3 -m bumpversion --config-file setup.cfg --allow-dirty --verbose minor --list > build_vars.env
 
                     """
                     script {
