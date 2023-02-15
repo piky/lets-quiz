@@ -9,15 +9,9 @@ pipeline {
     }
             
     stages {
-        stage('SCM Get Code') {
+        stage('Run Python Script') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/piky/lets-quiz.git']]])
-            }
-        }
-
-        stage('Which Python3') {
-            steps {
-                sh 'which python3'
+                sh 'python --version'
             }
         }
     }
