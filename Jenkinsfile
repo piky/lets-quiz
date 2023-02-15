@@ -3,7 +3,7 @@
 pipeline {
     agent {
         kubernetes {
-            inheritFrom 'python3'
+            label 'python3'
         }
     }
             
