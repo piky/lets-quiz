@@ -1,10 +1,12 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent
-        {
-            kubernetes
+    agent {
+        kubernetes {
+            inheritFrom 'python3'
         }
+    }
+            
     stages {
         stage('SCM Get Code') {
             steps {
