@@ -3,20 +3,7 @@
 pipeline {
     agent {
         kubernetes {
-            yaml '''
-                apiVersion: v1
-                kind: Pod
-                metadata:
-                labels:
-                    jenkins-agent: jntl-agent-python
-                spec:
-                    containers:
-                    - name: python3
-                        image: jnlp-agent-python:latest
-                        command:
-                        - cat
-                        tty: true
-                '''
+            yamlFile 'KubernetesPod.yaml'
             retries 2
         }
     }
