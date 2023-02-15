@@ -17,9 +17,7 @@ pipeline {
 
         stage('Which Python3') {
             steps {
-                script {
-                    sh 'which python3'
-                }
+                sh 'which python3'
             }
         }
     }
