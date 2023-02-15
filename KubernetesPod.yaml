@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: python3
-      image: jenkins/jnlp-agent-python3:latest
+      image: jenkins/jnlp-agent-python:latest
       command:
         - cat
       tty: true
