@@ -3,7 +3,10 @@
 pipeline {
     agent {
         kubernetes {
-            label 'python3'
+            containerTemplate {
+                name 'python3'
+                image 'jenkins/jnlp-agent-python:latest'
+            }
         }
     }
             
