@@ -10,12 +10,12 @@ pipeline {
                 labels:
                     jenkins-agent: jntl-agent-python
                 spec:
-                containers:
-                - name: python3
-                    image: jnlp-agent-python:latest
-                    command:
-                    - cat
-                    tty: true
+                    containers:
+                    - name: python3
+                        image: jnlp-agent-python:latest
+                        command:
+                        - cat
+                        tty: true
                 '''
             retries 2
         }
