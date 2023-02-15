@@ -3,8 +3,11 @@ kind: Pod
 metadata:
   name: agent-python3
   labels:
-      jenkins-agent: jntl-agent-python3
+      jenkins-agent: jnlp-agent-python3
 spec:
   containers:
     - name: python
       image: jenkins/jnlp-agent-python3:latest
+      command:
+        - cat
+      tty: true
